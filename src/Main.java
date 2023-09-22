@@ -36,4 +36,8 @@ class Library {
         }
         return false;
     }
+
+    public List<Book> getBooks() {
+        return books;
+    }
 }
