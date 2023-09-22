@@ -1,31 +1,39 @@
 import java.util.ArrayList;
-import  java.util.List;
+import java.util.List;
 
-class Book {
-    private string title;
-    private string author;
-    private int year;
+class Library {
+    private List<Book> books;
 
-    public Book(String title, String author, int year) {
-        this.title = title;
-        this.author = author;
-        this.year = year;
+    public Library() {
+        books = new ArrayList<>();
+    }
+
+    public void addBook(Book book) {
+        books.add(book);
+    }
+
+    public void displayBooks() {
+        for (Book book : books) {
+            System.out.println(book);
+        }
+    }
+
+    public Book findBookByTitle(String title) {
+        for (Book book : books) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                return book;
+            }
+        }
+        return null;
+    }
+
+    public boolean removeBookByIsbn(String isbn) {
+        for (Book book : books) {
+            if (book.getIsbn().equals(isbn)) {
+                books.remove(book);
+                return true;
+            }
+        }
+        return false;
     }
 }
-
-public String  getTitle(){
-    return title;
-}
-
-public String getAuthor(){
-    return author;
-}
-
-public int getYear(){
-    return year;
-}
-
-public class Main {
-    public static void main(String[] args)
-
-    }
